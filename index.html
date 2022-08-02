@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>高进python</title>
+    <link rel="stylesheet" href="../static/css/jq-1.css">
+      <link rel="styleSheet" href="../static/css/index.css" >
+      <style>
+
+    .navbar-brand{
+        float: left;
+        width: 170px;
+        height: 50px;
+    }
+
+    .navbar-brand img{
+        width: 100%;
+        height: 100%;
+    }
+
+      </style>
+
+{#      <link rel="stylesheet" href="https://www.baidu.com/wp-content/themes/runoob/style.css?v=1.165">#}
+  </head>
+  <body>
+            <!-- 头部信息开始 -->
+          <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#96b97d;">
+
+      <div class="container-fluid w">
+        <div class="navbar-header">
+
+            <!--
+          <a class="navbar-brand" style="color: #fff0f0" href="#"><img src="../static/images/tl.png" alt=""></a>
+            -->
+
+            <a class="navbar-brand" style="color: #fff0f0;font-size: 24px;line-height: 50px" href="#">高进学习平台</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="#" target="_blank">登录</a></li>
+
+            <li><a href="javascript:void(0);"  id="exit">退出</a></li>
+
+            <li><a href="#">隐私空间</a></li>
+            <li><a href="#">帮助</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+              <!-- 头部信息结束 -->
+
+             <div class="container-fluid w">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar" id="xxx">
+
+            <li class="active"><a href="#" style="color: #0f0f0f;font-size: 18px;background-color:darkseagreen">Python3 教程</a></li>
+              {% for i in objs.title %}
+            <li {% if i.id == objs.text.id  %} class="active" {% endif %}>
+                <a  href="{{ i.id }}" data-id="{{ i.id }}" id="num">{{ i.title }}</a>
+            </li>
+                {% endfor %}
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            <div class="box">
+              <button type="submit" class="btn btn-success">学习</button>
+            </div>
+
+          <h3 class="sub-header" style="color: coral">人生苦短、我用Python</h3>
+            <p >阅读：<em id="read" style="color: coral; font-size: 20px; font-family: Arial">{{ objs.read }}</em></p>
+          <div class="table-responsive">
+            {{ objs.text.desc | safe }}
+
+          </div>
+
+            <h3>关于作者</h3>
+<p><a href="http://weibo.com/liaoxuefeng">高进</a>，十年软件开发经验，业余产品经理，精通Java/Python/Ruby/Scheme/Objective C等，专注于数据采集，数据管理、数据挖掘、数据可视化领域, python技术学习请移步<a href="https://ke.qq.com/teacher/1972386194">Python高级技术</a>，欢迎微信交流：tl210329</p>
+
+            <!-- 评论 -->
+            {% include 'common.html' %}
+            <!--
+            <div><img src="../static/images/wx.png" alt=""></div>
+<p>使用窄屏手机的童鞋，请点击左上角“目录”查看教程：</p>
+        -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $("#exit").on("click",function(){  //将退出按钮的id设置为exit，然后将这个函数在公共文件里面即可
+            console.log('abcd');
+            window.location.href = '/clear'
+        })
+    </script>
+    <script>
+        var $lis = $('.nav-sidebar li');
+        $lis.click(function () {
+            $(this).addClass('active').siblings('li').removeClass('active');
+        });
+    </script>
+
+            <script>
+                $('.box button').click(function () {
+                        window.location.href = 'https://mmzztt.com/'
+                })
+            </script>
+
+  </body>
+</html>
